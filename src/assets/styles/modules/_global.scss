@@ -1,0 +1,18 @@
+html {
+  font-family: $base-font;
+  font-weight: $base-font-weight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-size: $base-font-size;
+  overflow-x: hidden;
+}
+
+// a, button {
+//   transition: ease-in-out .3s;
+// }
