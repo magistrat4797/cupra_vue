@@ -12,9 +12,7 @@
     :title="title"
     :target="target"
   >
-    <span>
-      <slot />
-    </span>
+    <slot />
   </a>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <section class="top-box pt-header flex items-center md:items-end relative h-screen">
-    <MainContainer>
+    <main-container>
       <div
         class="md:pb-[140px] text-white max-w-[740px] text-center md:text-left"
       >
@@ -24,7 +24,7 @@
           </div>
         </template>
       </div>
-    </MainContainer>
+    </main-container>
   </section>
 </template>
 

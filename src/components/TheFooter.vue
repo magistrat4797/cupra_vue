@@ -1,6 +1,6 @@
 <template>
   <footer class="footer bg-white py-6 md:py-11 mt-4 border-t">
-    <MainContainer>
+    <main-container>
       <div class="flex flex-wrap justify-between items-center flex-col md:flex-row text-xs font-light">
         <div class="mb-4 md:mb-0">
           SEAT CUPRA S.A.U. 2022 ®
@@ -35,7 +35,7 @@
           </ul>
         </div>
       </div>
-    </MainContainer>
+    </main-container>
   </footer>
 </template>
 
