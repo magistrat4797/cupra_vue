@@ -3,7 +3,7 @@
     <main-container>
       <div class="text-white">
         <div class="md:max-w-[560px] text-center md:text-left mb-8 md:mb-16">
-          <h2 class="mb-2 md:mb-4 uppercase text-sm-heading sm:text-xl md:text-3xl font-light leading-snug md:leading-none">
+          <h2 class="mb-2 md:mb-4 uppercase text-sm-heading sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug md:leading-none">
             <slot name="title" />
           </h2>
           <h3 class="text-base md:text-lg opacity-50 leading-6">
@@ -19,7 +19,7 @@
               </p>
             </div>
             <div class="md:max-w-[560px] pt-12 md:pt-24 lg:pt-[160px] text-center md:text-left">
-              <h3 class="mb-2 md:mb-4 uppercase text-sm-heading md:text-2xl font-light leading-tight">
+              <h3 class="mb-2 md:mb-4 uppercase text-sm-heading md:text-xl lg:text-2xl font-light leading-tight">
                 <slot name="desc-title" />
               </h3>
               <p class="text-base md:text-lg opacity-50 leading-6">
@@ -52,8 +52,8 @@ import MainContainer from "@/components/MainContainer.vue";
   .car-showcase {
     &__image-block {
       :deep(img) {
-        @apply w-full h-full object-cover max-h-[430px] md:max-h-none;
+        @apply w-full h-full object-cover max-h-[270px] xs:max-h-[350px] sm:max-h-[430px] md:max-h-none;
       }
     }
-  } 
+  }
 </style>

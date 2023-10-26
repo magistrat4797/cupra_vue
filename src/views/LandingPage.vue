@@ -25,7 +25,7 @@
       <base-link href="#" btn-style="secondary">Umów jazdę próbną</base-link>
     </template>
   </car-showcase-section>
-  <car-features-section />
+  <car-features-section :features="features" />
   <the-footer />
   </div>
 </template>
@@ -37,4 +37,34 @@ import BaseLink from '@/components/base/BaseLink.vue';
 import HeroSection from '@/components/sections/hero/HeroSection.vue';
 import CarShowcaseSection from '@/components/sections/car/CarShowcaseSection.vue';
 import CarFeaturesSection from '@/components/sections/car/CarFeaturesSection.vue';
+
+const features = [
+  {
+    title: 'Technologia',
+    subtitle: 'Poczuj pełną wolność jazdy dzięki licznym innowacjom.',
+    image: 'cupra_formentor_294.jpg',
+    action: {
+      text: 'Umów jazdę próbną',
+      href: '#'
+    }
+  },
+  {
+    title: 'Potęga Designu',
+    subtitle: 'Crossover emanujący gracją, dynamizmem i czystym wyrafinowaniem.',
+    image: 'cupra_formentor_418.jpg',
+    action: {
+      text: 'Umów jazdę próbną',
+      href: '#'
+    }
+  },
+  {
+    title: 'Design wnętrza',
+    subtitle: 'Idealny komfort. Unikalny wystrój wnętrza stworzony w stylu CUPRY.',
+    image: 'cupra_formentor_381.jpg',
+    action: {
+      text: 'Umów jazdę próbną',
+      href: '#'
+    }
+  }
+]
 </script>

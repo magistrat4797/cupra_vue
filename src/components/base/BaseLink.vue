@@ -7,6 +7,7 @@
       'bg-transparent outline-black hover:outline-2 text-black': btnStyle === 'primary-outlined',
       'bg-btn-secondary outline-btn-secondary hover:outline-btn-secondary-hover hover:bg-btn-secondary-hover text-black': btnStyle === 'secondary',
       'bg-transparent  outline-white hover:outline-2 text-white': btnStyle === 'secondary-outlined',
+      'bg-white outline-white hover:outline-btn-secondary hover:bg-btn-secondary text-black': btnStyle === 'white',
     }"
     :href="href"
     :title="title"

@@ -13,7 +13,7 @@
         </template>
         <template v-if="slots.title">
           <div class="mb-8 md:mb-12">
-            <h1 class="text-sm-heading sm:text-xl md:text-3xl font-light leading-snug md:leading-none">
+            <h1 class="text-sm-heading sm:text-xl md:text-2xl lg:text-3xl font-light leading-snug md:leading-tight xl:leading-none">
               <slot name="title" />
             </h1>
           </div>
