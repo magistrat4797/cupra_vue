@@ -132,7 +132,7 @@ const scrollToComponent = (link: NavLink) => {
   }
 }
 .hamburger {
-  @apply relative w-7 h-8 cursor-pointer;
+  @apply relative w-6 h-8 cursor-pointer;
   &__line {
     @apply block absolute h-[2px] w-full bg-black rounded opacity-100 ease-in-out duration-300 rotate-0;
     &:nth-child(1) {
