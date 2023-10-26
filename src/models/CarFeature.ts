@@ -5,5 +5,7 @@ export interface CarFeature {
   action: {
     text: string;
     href: string;
+    btnStyle: string;
+    scrollTo?: string;
   };
 }

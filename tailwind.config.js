@@ -44,6 +44,7 @@ export default {
         full: "100%",
         header: "84px",
         section: "104px",
+        "29": "117px",
       },
       boxShadow: {
         header: "0 5px 15px rgba(0, 0, 0, 0.35)",
@@ -73,6 +74,7 @@ export default {
       "2xl": "40px",
       "3xl": "60px",
       "sm-heading": "23px",
+      "md-heading": "36px",
     },
   },
   plugins: [],
