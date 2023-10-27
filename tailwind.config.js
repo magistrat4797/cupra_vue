@@ -7,49 +7,43 @@ export default {
   theme: {
     extend: {
       colors: {
-        "base-grey": "#75787B",
         "primary-grey": "#B4B4B3",
         "secondary-grey": "#D5D5D5",
         "tertiary-grey": "#242221",
         "light-grey": "#DBDBDB",
-        "lightest-grey": "#F4F4F3",
         "dark-grey": "#1B1B1B",
-        "primary-sand": "#DBD3CB",
-        "secondary-sand": "#D9CDBD",
-        "oxygen-white": "#F8F8F8",
-        "cupra-petrol": "#093E52",
-        "dark-peacock": "#006072",
+        "secondary-white": "#F5F5F5",
+        "base-blue": "#007BFF",
+        "dark-blue": "#0056B3",
         "btn-primary": "#190F14",
         "btn-primary-hover": "#494949",
         "btn-secondary": "#DBD3CB",
         "btn-secondary-hover": "#FFFFFF",
-        "secondary-white": "#F5F5F5",
-      },
-      minHeight: {
-        "btn": "46px",
-        header: "84px",
-        section: `calc(100vh - 84px)`,
+        "checkbox-selected": "#8C8B8B",
       },
       minWidth: {
-        "btn-sm": "90px",
-        "btn-md": "150px",
-        "btn-lg": "200px",
+        checkbox: "20px",
+      },
+      minHeight: {
+        btn: "46px",
+        header: "84px",
+        section: `calc(100vh - 84px)`,
+        checkbox: "20px",
+      },
+      height: {
+        "select-option": "145px"
       },
       maxWidth: {
+        form: "553px",
         container: "1404px",
-        "container-sm": "672px",
+        "container-sm": "702px",
         "1/3": "33.33334%",
+        "carousel-slide-info": "590px",
       },
       padding: {
-        full: "100%",
         header: "84px",
         section: "104px",
-        "29": "117px",
-      },
-      boxShadow: {
-        header: "0 5px 15px rgba(0, 0, 0, 0.35)",
-        button: "0 0 12px",
-        base: "0 10px 20px rgba(0, 0, 0, 0.6)",
+        29: "117px",
       },
       zIndex: {
         1: "1",
@@ -75,7 +69,7 @@ export default {
       "3xl": "60px",
       "sm-heading": "23px",
       "md-heading": "36px",
+      "lg-heading": "48px",
     },
   },
-  plugins: [],
 }

@@ -1,62 +1,80 @@
 [
   {
-    "model": "CUPRA Formentor",
+    "model": {
+      "name": "CUPRA Formentor",
+      "label": "Cupra Formentor"
+    },
     "image": "cupra_formentor.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 204 KM/H Moc silnika: 150 KM",
-      "leaseAvailability": "Dostępny w leasingu z 0% opłaty własnej",
+      "leaseAvailability": "0%",
       "monthlyRate": "1439 zł",
-      "grossPrice": "127800 zł"
+      "grossPrice": "127 800 zł"
     }
   },
   {
-    "model": "CUPRA Formentor VZ",
+    "model": {
+      "name": "CUPRA Formentor VZ",
+      "label": "Cupra Formentor VZ"
+    },
     "image": "cupra_formentor.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 250 KM/H Moc silnika: 310 KM",
-      "leaseAvailability": "Dostępny w leasingu z 0% opłaty własnej",
+      "leaseAvailability": "0%",
       "monthlyRate": "1553 zł",
-      "grossPrice": "152400 zł"
+      "grossPrice": "152 400 zł"
     }
   },
   {
-    "model": "CUPRA Ateca",
+    "model": {
+      "name": "CUPRA Ateca",
+      "label": "Cupra Ateca"
+    },
     "image": "cupra_ateca.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 247 KM/H Moc silnika: 300 KM",
-      "leaseAvailability": "Dostępny w leasingu z 0% opłaty własnej",
+      "leaseAvailability": "0%",
       "monthlyRate": "2334 zł",
-      "grossPrice": "220700 zł"
+      "grossPrice": "220 700 zł"
     }
   },
   {
-    "model": "Nowa CUPRA Born",
+    "model": {
+      "name": "Nowa CUPRA Born",
+      "label": "Nowa Cupra Born"
+    },
     "image": "cupra_born_new.png",
     "specs": {
       "power_details": "Akumulator 58 kWh moc do 204 KM²",
-      "leaseAvailability": "Dostępny w leasingu: 0% opłaty własnej",
+      "leaseAvailability": "0%",
       "monthlyRate": "1943 zł",
-      "grossPrice": "179600 zł"
+      "grossPrice": "179 600 zł"
     }
   },
   {
-    "model": "Leon",
+    "model": {
+      "name": "CUPRA Leon",
+      "label": "Cupra Leon"
+    },
     "image": "cupra_leon.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 245 KM/H Moc silnika: 300 KM",
-      "leaseAvailability": "Dostępny w leasingu: 0% opłaty własnej",
+      "leaseAvailability": "0%",
       "monthlyRate": "1553 zł",
-      "grossPrice": "152400 zł"
+      "grossPrice": "152 400 zł"
     }
   },
   {
-    "model": "Leon Sportstourer",
+    "model": {
+      "name": "CUPRA Leon Sportstourer",
+      "label": "Cupra Leon Sportstourer"
+    },
     "image": "cupra_leon_sportstourer.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 250 KM/H Moc silnika: 310 KM",
-      "leaseAvailability": "Dostępny w leasingu: 0% opłaty własnej",
+      "leaseAvailability": "0%",
       "monthlyRate": "1601 zł",
-      "grossPrice": "156200 zł"
+      "grossPrice": "156 200 zł"
     }
   }
 ]

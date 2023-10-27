@@ -16,7 +16,7 @@
           <div class="w-full md:w-3/5">
             <div class="car-showcase__image-block text-center md:text-left">
               <slot name="left-image" />
-              <p class="mt-2 md:mt-4 text-xs md:text-base opacity-50">
+              <p class="mb-0 mt-2 md:mt-4 text-xs md:text-base opacity-50">
                 <slot name="left-image-text" />
               </p>
             </div>
@@ -26,7 +26,7 @@
               >
                 <slot name="desc-title" />
               </h3>
-              <p class="text-base md:text-lg opacity-50 leading-6">
+              <p class="mb-0 text-base md:text-lg opacity-50 leading-6">
                 <slot name="desc-info" />
               </p>
               <div class="mt-6 md:mt-8">
@@ -37,7 +37,7 @@
           <div class="w-full md:w-2/5 md:pt-16">
             <div class="car-showcase__image-block text-center md:text-left">
               <slot name="right-image" />
-              <p class="mt-2 md:mt-4 text-xs md:text-base opacity-50">
+              <p class="mb-0 mt-2 md:mt-4 text-xs md:text-base opacity-50">
                 <slot name="right-image-text" />
               </p>
             </div>
