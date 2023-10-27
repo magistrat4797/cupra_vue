@@ -64,6 +64,6 @@ onMounted(fetchCars);
 
 <style lang="scss" scoped>
   .test-drive__text :deep(a) {
-    @apply underline text-base-blue hover:text-dark-blue;
+    @apply underline hover:text-dark-blue;
   }
 </style>
