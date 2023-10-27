@@ -1,7 +1,7 @@
 <template>
-  <a
+  <button
     class="inline-flex justify-center items-center px-6 min-h-btn outline outline-1 cursor-pointer"
-    @click="handleClick"
+    :type="type"
     :class="{
       'bg-btn-primary outline-btn-primary hover:outline-btn-primary-hover hover:bg-btn-primary-hover text-white':
         btnStyle === 'primary',
@@ -12,25 +12,17 @@
       'bg-white outline-white hover:outline-btn-secondary hover:bg-btn-secondary text-black':
         btnStyle === 'white'
     }"
-    :href="href"
-    :title="title"
-    :target="target"
   >
     <slot />
-  </a>
+  </button>
 </template>
 
 <script lang="ts" setup>
-import useScroll from '@/composables/useScroll';
-
-const props = defineProps({
-  href: {
-    type: String,
-    default: '#'
+defineProps({
+  type: {
+    type: String as () => 'button' | 'submit' | 'reset',
+    default: 'button'
   },
-  title: String,
-  target: String,
-  scrollTo: String,
   btnStyle: {
     type: String,
     default: 'primary',
@@ -38,12 +30,4 @@ const props = defineProps({
       ['primary', 'secondary', 'primary-outlined', 'secondary-outlined', 'white'].includes(prop)
   }
 });
-
-const { scrollToComponent } = useScroll();
-
-const handleClick = (event: MouseEvent) => {
-  if (props.scrollTo) {
-    scrollToComponent(event, props.scrollTo, 84);
-  }
-};
 </script>

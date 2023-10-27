@@ -1,5 +1,8 @@
 export interface CarDetails {
-  model: string;
+  model: {
+    name: string;
+    label: string;
+  };
   image: string;
   specs: {
     power_details: string;

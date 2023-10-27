@@ -1,31 +1,30 @@
 <template>
   <div class="cars-carousel">
     <carousel v-bind="settings" :breakpoints="breakpoints" :wrapAround="true">
-      <slide v-for="car in cars" :key="car.model">
+      <slide v-for="car in cars" :key="car.model.name">
         <div class="px-4 md:px-0">
           <div>
-            <h2 class="text-lg md:text-md-heading lg:text-lg-heading leading-none pb-4 md:pb-8 lg:pb-14">{{ car.model }}</h2>
-            <img :src="`/src/assets/images/cars/${car.image}`" :alt="car.model" />
+            <h2 class="text-lg md:text-md-heading lg:text-lg-heading leading-none pb-4 md:pb-8 lg:pb-14">{{ car.model.name }}</h2>
+            <img :src="`/src/assets/images/cars/${car.image}`" :alt="car.model.name" />
           </div>
           <div class="flex justify-center">
             <div class="flex flex-col justify-center w-full max-w-carousel-slide-info">
               <div class="mt-2 md:mt-4 lg:mt-8 mb-4 md:mb-8 lg:mb-12 px-12 md:px-4">
-                <p class="font-light text-xs">{{ car.specs.power_details }}</p>
+                <p class="mb-0 font-light text-xs">{{ car.specs.power_details }}</p>
               </div>
               <div class="flex flex-wrap justify-between items-center text-xs font-light">
                 <div class="w-full md:w-1/3 md:px-4 mb-1 md:mb-0">
-                  <p>Dostępny w leasingu z {{ car.specs.leaseAvailability }} opłaty własnej</p>
+                  <p class="mb-0">Dostępny w leasingu z {{ car.specs.leaseAvailability }} opłaty własnej</p>
                 </div>
                 <div class="w-1/2 md:w-1/3 md:px-4">
-                  <p>Rata netto/mies. od* <span class="block text-lg font-medium leading-none">{{ car.specs.monthlyRate }}</span></p>
+                  <p class="mb-0">Rata netto/mies. od* <span class="block text-lg font-medium leading-none">{{ car.specs.monthlyRate }}</span></p>
                 </div>
                 <div class="w-1/2 md:w-1/3 md:px-4">
-                  <p>Cena brutto już od <span class="block text-lg font-medium leading-none">{{ car.specs.grossPrice }}</span></p>
+                  <p class="mb-0">Cena brutto już od <span class="block text-lg font-medium leading-none">{{ car.specs.grossPrice }}</span></p>
                 </div>
               </div>
               <div class="mt-6 md:mt-10 lg:mt-12">
                 <base-link
-                  href="#"
                   btn-style="primary"
                   scroll-to="test-drive"
                 >
@@ -55,7 +54,7 @@ import 'vue3-carousel/dist/carousel.css';
 defineProps({
   cars: {
     type: Object,
-    default: () => ({})
+    default: () => {}
   }
 });
 

@@ -42,7 +42,7 @@
             >
               +48 58 506 65 65
             </a>
-            <base-link href="#" btn-style="primary-outlined" class="w-full max-w-[200px] xl:w-auto">
+            <base-link btn-style="primary-outlined" class="w-full max-w-[200px] xl:w-auto">
               Zapytaj o ofertę
             </base-link>
             <base-link
@@ -62,7 +62,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 import type { NavLink } from '@/models/Navigation';
 
 import MainContainer from '@/components/MainContainer.vue';
@@ -129,7 +129,7 @@ onMounted(() => {
   window.addEventListener('resize', handleResize);
 });
 
-onUnmounted(() => {
+onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
 });
 </script>

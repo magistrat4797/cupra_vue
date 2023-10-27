@@ -1,6 +1,9 @@
 [
   {
-    "model": "CUPRA Formentor",
+    "model": {
+      "name": "CUPRA Formentor",
+      "label": "Cupra Formentor"
+    },
     "image": "cupra_formentor.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 204 KM/H Moc silnika: 150 KM",
@@ -10,7 +13,10 @@
     }
   },
   {
-    "model": "CUPRA Formentor VZ",
+    "model": {
+      "name": "CUPRA Formentor VZ",
+      "label": "Cupra Formentor VZ"
+    },
     "image": "cupra_formentor.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 250 KM/H Moc silnika: 310 KM",
@@ -20,7 +26,10 @@
     }
   },
   {
-    "model": "CUPRA Ateca",
+    "model": {
+      "name": "CUPRA Ateca",
+      "label": "Cupra Ateca"
+    },
     "image": "cupra_ateca.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 247 KM/H Moc silnika: 300 KM",
@@ -30,7 +39,10 @@
     }
   },
   {
-    "model": "Nowa CUPRA Born",
+    "model": {
+      "name": "Nowa CUPRA Born",
+      "label": "Nowa Cupra Born"
+    },
     "image": "cupra_born_new.png",
     "specs": {
       "power_details": "Akumulator 58 kWh moc do 204 KM²",
@@ -40,7 +52,10 @@
     }
   },
   {
-    "model": "Leon",
+    "model": {
+      "name": "CUPRA Leon",
+      "label": "Cupra Leon"
+    },
     "image": "cupra_leon.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 245 KM/H Moc silnika: 300 KM",
@@ -50,7 +65,10 @@
     }
   },
   {
-    "model": "Leon Sportstourer",
+    "model": {
+      "name": "CUPRA Leon Sportstourer",
+      "label": "Cupra Leon Sportstourer"
+    },
     "image": "cupra_leon_sportstourer.png",
     "specs": {
       "power_details": "Maksymalna prędkość: 250 KM/H Moc silnika: 310 KM",
