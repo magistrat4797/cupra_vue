@@ -99,6 +99,9 @@ watch(
       &-image {
         @apply w-full max-w-[150px] xs:max-w-[220px] sm:max-w-[300px];
       }
+      .cars-select__options-list & {
+        @apply hover:text-dark-blue;
+      }
     }
   }
 </style>
