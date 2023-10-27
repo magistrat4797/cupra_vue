@@ -30,26 +30,17 @@ export default {
         header: "84px",
         section: `calc(100vh - 84px)`,
       },
-      minWidth: {
-        "btn-sm": "90px",
-        "btn-md": "150px",
-        "btn-lg": "200px",
-      },
       maxWidth: {
         container: "1404px",
         "container-sm": "672px",
         "1/3": "33.33334%",
+        "carousel-slide-info": "590px",
       },
       padding: {
         full: "100%",
         header: "84px",
         section: "104px",
         "29": "117px",
-      },
-      boxShadow: {
-        header: "0 5px 15px rgba(0, 0, 0, 0.35)",
-        button: "0 0 12px",
-        base: "0 10px 20px rgba(0, 0, 0, 0.6)",
       },
       zIndex: {
         1: "1",
@@ -75,6 +66,7 @@ export default {
       "3xl": "60px",
       "sm-heading": "23px",
       "md-heading": "36px",
+      "lg-heading": "48px",
     },
   },
   plugins: [],
