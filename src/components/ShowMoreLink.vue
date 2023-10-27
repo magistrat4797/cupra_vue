@@ -1,16 +1,18 @@
 <template>
-  <a href="#" @click.prevent="toggleContent">
-    {{ showContent ? labelOpened : label }}
-  </a>
-  <div
-    ref="content"
-    class="duration-300 overflow-hidden"
-    :style="{ 'max-height': calculatedHeight + 'px' }"
-  >
-    <span class="block pt-4 md:pt-6">
-      <slot name="hidden-text" />
-    </span>
-  </div>
+  <span>
+    <a href="#" @click.prevent="toggleContent">
+      {{ showContent ? labelOpened : label }}
+    </a>
+    <div
+      ref="content"
+      class="duration-300 overflow-hidden"
+      :style="{ 'max-height': calculatedHeight + 'px' }"
+    >
+      <span class="block pt-4 md:pt-6">
+        <slot name="hidden-text" />
+      </span>
+    </div>
+  </span>
 </template>
 
 <script lang="ts" setup>
