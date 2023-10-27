@@ -15,8 +15,8 @@
         </span>
       </div>
     </div>
-    <div v-if="showOptions" class="cars-select__options-list mt-4 absolute left-0 right-0 top-full z-1">
-      <div class="cars-select__option" v-for="option in options" :key="option.value" @click="selectOption(option.value)">
+    <div v-if="showOptions" class="cars-select__options-list absolute left-0 right-0 top-full z-1">
+      <div class="cars-select__option" v-for="option in filteredOptions" :key="option.value" @click="selectOption(option.value)">
         <div class="flex items-center">
           <div class="cars-select__option-image">
             <img :src="`/src/assets/images/cars/${option.image}`" :alt="option.label" />
@@ -33,8 +33,11 @@
 <script lang="ts" setup>
 import ArrowIcon from '@/assets/images/icons/arrow.svg';
 
-import { ref, watch, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import type { SelectOption } from '@/models/SelectOption';
+
+const selectRef = ref<HTMLElement | null>(null);
+const showOptions = ref(false);
 
 const props = defineProps({
   modelValue: {
@@ -48,7 +51,9 @@ const props = defineProps({
   }
 });
 
-const selectRef = ref<HTMLElement | null>(null);
+const filteredOptions = computed(() => {
+  return props.options.filter(option => option.value !== props.modelValue);
+});
 
 const outsideClickListener = (event: Event) => {
   if (showOptions.value && selectRef.value && !selectRef.value.contains(event.target as Node)) {
@@ -66,21 +71,14 @@ onBeforeUnmount(() => {
 
 const emit = defineEmits(['update:modelValue']);
 
-const showOptions = ref(false);
-const selectedOption = ref<SelectOption | undefined>();
-
 const selectOption = (value: string) => {
   emit('update:modelValue', value);
   showOptions.value = false;
 };
 
-watch(
-  () => [props.options, props.modelValue],
-  () => {
-    selectedOption.value = props.options.find(option => option.value === props.modelValue);
-  },
-  { immediate: true }
-);
+const selectedOption = computed(() => {
+  return props.options.find(option => option.value === props.modelValue);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -100,6 +98,9 @@ watch(
         @apply w-full max-w-[150px] xs:max-w-[220px] sm:max-w-[300px];
       }
       .cars-select__options-list & {
+        &:after {
+          @apply border-t-0;
+        }
         @apply hover:text-dark-blue;
       }
     }
