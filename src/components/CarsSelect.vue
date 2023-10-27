@@ -21,7 +21,7 @@
           <div class="cars-select__option-image">
             <img :src="`/src/assets/images/cars/${option.image}`" :alt="option.label" />
           </div>
-          <div class="text-xs md:text-base">
+          <div class="text-xs md:text-base pr-4">
             {{ option.label }}
           </div>
         </div>
@@ -86,8 +86,7 @@ const selectedOption = computed(() => {
     &__option {
       @apply relative flex items-center justify-between h-20 xs:h-24 sm:h-28 md:h-select-option z-1;
       &:after {
-        @apply content-[''] absolute right-0 top-0 h-full border border-secondary-grey -z-1 bg-secondary-white;
-        width: calc(100% - 50px);
+        @apply content-[''] absolute right-0 top-0 h-full border border-secondary-grey -z-1 bg-secondary-white w-full sm:w-[calc(100%-50px)];
       }
       & + .cars-select__option {
         &:after {
