@@ -10,7 +10,7 @@
           <div class="flex justify-center">
             <div class="flex flex-col justify-center w-full max-w-carousel-slide-info">
               <div class="mt-2 md:mt-4 lg:mt-8 mb-4 md:mb-8 lg:mb-12 px-12 md:px-4">
-                <p class="mb-0 font-light text-xs">{{ car.specs.power_details }}</p>
+                <p class="mb-0 font-light text-xs">{{ car.specs.powerDetails }}</p>
               </div>
               <div class="flex flex-wrap justify-between items-center text-xs font-light">
                 <div class="w-full md:w-1/3 md:px-4 mb-1 md:mb-0">

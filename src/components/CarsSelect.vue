@@ -1,5 +1,5 @@
 <template>
-  <div ref="selectRef" class="cars-select relative cursor-pointer">
+  <div ref="selectRef" class="cars-select relative cursor-pointer mb-4 md:mb-5">
     <div class="cars-select__option-selected" @click="showOptions = !showOptions">
       <div class="cars-select__option">
         <div class="flex items-center">

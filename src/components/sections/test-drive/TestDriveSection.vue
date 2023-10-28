@@ -12,18 +12,25 @@
             <slot name="title" />
           </h2>
         </div>
-        <form>
+        <form @submit.prevent="submitForm" novalidate>
           <div class="flex justify-center">
-            <div class="w-full max-w-form">
+            <div class="w-full md:max-w-form">
               <cars-select :modelValue="selectedCarModel" :options="formattedCars" @update:modelValue="selectedCarModel = $event"/>
+              <div v-for="input in inputs" :key="input.key">
+                <base-input
+                  :type="input.type"
+                  v-model="formData[input.key]"
+                  :placeholder="input.placeholder"
+                  :error="findError(input.key)"
+                />
+              </div>
             </div>
           </div>
-          <p>INPUTY</p>
-          <div class="test-drive__text text-xs pb-4 md:pb-6">
+          <div class="test-drive__text text-2xs pb-4 md:pb-6 leading-normal">
             <slot name="text" />
           </div>
           <div class="text-center">
-            <slot name="actions" />
+            <base-button type="submit" btn-style="primary">Umów jazdę próbną</base-button>
           </div>
         </form>
       </div>
@@ -33,17 +40,64 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted } from 'vue';
-
 import MainContainer from '@/components/MainContainer.vue';
 import CarsSelect from '@/components/CarsSelect.vue';
-
+import BaseInput from '@/components/base/BaseInput.vue';
+import BaseButton from '@/components/base/BaseButton.vue';
 import { useCarsStore } from '@/stores/carsStore';
+
+import type { FormData, Input } from '@/models/TestDrive';
 import type { CarDetails } from '@/models/CarDetails';
 
 const carsStore = useCarsStore();
 
 const cars = ref<CarDetails[]>([]);
 const selectedCarModel = ref('');
+
+const formData = ref<FormData>({
+  name: '',
+  surname: '',
+  email: '',
+  phone: ''
+});
+
+const errors = ref<Array<{ key: string; message: string }>>([]);
+
+const inputs: Input[] = [
+  { key: 'name', type: 'text', placeholder: 'Imię *' },
+  { key: 'surname', type: 'text', placeholder: 'Nazwisko (opcjonalnie)' },
+  { key: 'email', type: 'email', placeholder: 'Adres e-mail *' },
+  { key: 'phone', type: 'tel', placeholder: 'Nr. telefonu *' },
+];
+
+const findError = (key: string) => {
+  const errorObj = errors.value.find(error => error.key === key);
+  return errorObj ? errorObj.message : '';
+};
+
+const submitForm = () => {
+  errors.value = [];
+
+  if (!formData.value.name) {
+    errors.value.push({ key: 'name', message: 'Podaj imię' });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!formData.value.email) {
+    errors.value.push({ key: 'email', message: 'Podaj adres e-mail' });
+  } else if (!emailRegex.test(formData.value.email)) {
+    errors.value.push({ key: 'email', message: 'Nieprawidłowy format e-maila' });
+  }
+
+  if (!formData.value.phone) {
+    errors.value.push({ key: 'phone', message: 'Podaj numer telefonu' });
+  }
+
+  if (errors.value.length === 0) {
+    console.log('submitted');
+  }
+};
 
 const fetchCars = async () => {
   await carsStore.fetchCars();
@@ -53,11 +107,15 @@ const fetchCars = async () => {
   }
 };
 
-const formattedCars = computed(() => cars.value.map(car => ({
-  value: car.model.name,
-  label: car.model.label,
-  image: car.image
-})));
+const formattedCars = computed(
+  () => cars.value.map(
+      car => ({
+      value: car.model.name,
+      label: car.model.label,
+      image: car.image
+    })
+  )
+);
 
 onMounted(fetchCars);
 </script>

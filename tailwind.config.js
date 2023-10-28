@@ -31,7 +31,9 @@ export default {
         checkbox: "20px",
       },
       height: {
-        "select-option": "145px"
+        "select-option": "145px",
+        "input-mobile": "40px",
+        "input": "45px",
       },
       maxWidth: {
         form: "553px",
@@ -59,6 +61,7 @@ export default {
       "2xl": "1400px",
     },
     fontSize: {
+      "2xs": "13px",
       xs: "14px",
       sm: "15px",
       base: "16px",
