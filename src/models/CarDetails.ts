@@ -6,8 +6,8 @@ export interface CarDetails {
   image: string;
   specs: {
     power_details: string;
-    leaseAvailability: string;
-    monthlyRate: string;
-    grossPrice: string;
+    lease_availability: string;
+    monthly_rate: string;
+    gross_price: string;
   };
 }

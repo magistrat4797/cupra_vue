@@ -1,7 +1,7 @@
 <template>
   <div
-    class="container w-full mx-auto px-4"
-    :class="[isSmall ? 'max-w-container-sm' : 'max-w-container']"
+    class="main-container max-w-container w-full mx-auto px-4"
+    :class="{ 'md:max-w-container-sm': isSmall }"
   >
     <slot />
   </div>

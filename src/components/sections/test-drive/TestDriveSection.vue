@@ -7,23 +7,35 @@
             <slot name="subtitle" />
           </h3>
           <h2
-            class="font-light text-sm-heading md:text-xl md:leading-9 lg:text-md-heading lg:leading-tight"
+            class="font-light text-sm-heading md:text-xl leading-snug md:leading-9 lg:text-md-heading lg:leading-tight"
           >
             <slot name="title" />
           </h2>
         </div>
-        <form>
+        <form id="test-drive-form" @submit.prevent="submitForm" novalidate>
           <div class="flex justify-center">
-            <div class="w-full max-w-form">
-              <cars-select :modelValue="selectedCarModel" :options="formattedCars" @update:modelValue="selectedCarModel = $event"/>
+            <div class="w-full sm:max-w-form mb-6 md:mb-12">
+              <cars-select
+                :modelValue="selectedCarModel"
+                :options="formattedCars"
+                @update:modelValue="selectedCarModel = $event"
+              />
+              <div v-for="input in inputs" :key="input.key">
+                <base-input
+                  :type="input.type"
+                  v-model="formData[input.key]"
+                  :placeholder="input.placeholder"
+                  :error="getError(input.key)"
+                />
+              </div>
+              <span class="block text-2xs font-light">* Pole wymagane</span>
             </div>
           </div>
-          <p>INPUTY</p>
-          <div class="test-drive__text text-xs pb-4 md:pb-6">
+          <div class="test-drive__text text-2xs pb-4 md:pb-6 leading-normal">
             <slot name="text" />
           </div>
           <div class="text-center">
-            <slot name="actions" />
+            <base-button type="submit" btn-style="primary">Umów jazdę próbną</base-button>
           </div>
         </form>
       </div>
@@ -32,38 +44,131 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 import MainContainer from '@/components/MainContainer.vue';
 import CarsSelect from '@/components/CarsSelect.vue';
+import BaseInput from '@/components/base/BaseInput.vue';
+import BaseButton from '@/components/base/BaseButton.vue';
 
-import { useCarsStore } from '@/stores/carsStore';
+import { useStore } from '@/stores/store';
+import useScroll from '@/composables/useScroll';
+
+import type { FormData, Input } from '@/models/TestDrive';
 import type { CarDetails } from '@/models/CarDetails';
 
-const carsStore = useCarsStore();
+const store = useStore();
+const { scrollToComponent } = useScroll();
 
-const cars = ref<CarDetails[]>([]);
 const selectedCarModel = ref('');
 
-const fetchCars = async () => {
-  await carsStore.fetchCars();
-  cars.value = carsStore.cars;
-  if (cars.value.length > 0) {
-    selectedCarModel.value = cars.value[0].model.name;
+const formData = ref<FormData>({
+  name: '',
+  surname: '',
+  email: '',
+  phone: ''
+});
+
+const props = defineProps<{
+  cars: CarDetails[];
+}>();
+
+const errors = ref<Array<{ key: string; message: string }>>([]);
+
+const inputs: Input[] = [
+  { key: 'name', type: 'text', placeholder: 'Imię *' },
+  { key: 'surname', type: 'text', placeholder: 'Nazwisko (opcjonalnie)' },
+  { key: 'email', type: 'email', placeholder: 'Adres e-mail *' },
+  { key: 'phone', type: 'tel', placeholder: 'Nr. telefonu *' }
+];
+
+const getError = (key: string) => {
+  const error = errors.value.find((error) => error.key === key);
+  return error ? error.message : '';
+};
+
+const addValidationError = (key: string, message: string) => {
+  errors.value.push({ key, message });
+};
+
+const validateField = (field: Input) => {
+  const value = formData.value[field.key];
+  let errorMessage = null;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+
+  switch (field.key) {
+    case 'name':
+      if (!value) {
+        errorMessage = 'Podaj imię';
+      }
+      break;
+    case 'phone':
+      if (!value) {
+        errorMessage = 'Podaj numer telefonu';
+      } else if (!phoneRegex.test(value)) {
+        errorMessage = 'Nieprawidłowy format telefonu';
+      }
+      break;
+    case 'email':
+      if (!value) {
+        errorMessage = 'Podaj adres e-mail';
+      } else if (!emailRegex.test(value)) {
+        errorMessage = 'Nieprawidłowy format e-maila';
+      }
+      break;
+  }
+
+  if (errorMessage) {
+    addValidationError(field.key, errorMessage);
+    scrollToComponent(null, 'test-drive-form', 84);
   }
 };
 
-const formattedCars = computed(() => cars.value.map(car => ({
-  value: car.model.name,
-  label: car.model.label,
-  image: car.image
-})));
+const submitForm = () => {
+  errors.value = [];
 
-onMounted(fetchCars);
+  inputs.forEach(validateField);
+
+  if (errors.value.length === 0) {
+    const submittedData = {
+      selectedCar: selectedCarModel.value,
+      formData: formData.value,
+      checkboxes: store.filteredCheckboxes
+    };
+
+    alert(JSON.stringify(submittedData, null, 2)); // Submit data presenting
+  }
+};
+
+const getSelectedCar = () => {
+  if (props.cars.length > 0) {
+    selectedCarModel.value = props.cars[0].model.name;
+  }
+}
+
+const formattedCars = computed(() =>
+  props.cars.map((car) => ({
+    value: car.model.name,
+    label: car.model.label,
+    image: car.image
+  }))
+);
+
+watch(
+  () => props.cars,
+  (newVal) => {
+    if (newVal.length > 0) {
+      getSelectedCar();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>
-  .test-drive__text :deep(a) {
-    @apply underline hover:text-dark-blue;
-  }
+.test-drive__text :deep(a) {
+  @apply ease-in-out duration-300 underline hover:text-dark-blue;
+}
 </style>

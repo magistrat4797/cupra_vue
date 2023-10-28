@@ -4,7 +4,11 @@
       <slide v-for="car in cars" :key="car.model.name">
         <div class="px-4 md:px-0">
           <div>
-            <h2 class="text-lg md:text-md-heading lg:text-lg-heading leading-none pb-4 md:pb-8 lg:pb-14">{{ car.model.name }}</h2>
+            <h2
+              class="text-lg md:text-md-heading lg:text-lg-heading leading-none pb-4 md:pb-8 lg:pb-14"
+            >
+              {{ car.model.name }}
+            </h2>
             <img :src="`/src/assets/images/cars/${car.image}`" :alt="car.model.name" />
           </div>
           <div class="flex justify-center">
@@ -14,20 +18,29 @@
               </div>
               <div class="flex flex-wrap justify-between items-center text-xs font-light">
                 <div class="w-full md:w-1/3 md:px-4 mb-1 md:mb-0">
-                  <p class="mb-0">Dostępny w leasingu z {{ car.specs.leaseAvailability }} opłaty własnej</p>
+                  <p class="mb-0">
+                    Dostępny w leasingu z {{ car.specs.lease_availability }} opłaty własnej
+                  </p>
                 </div>
                 <div class="w-1/2 md:w-1/3 md:px-4">
-                  <p class="mb-0">Rata netto/mies. od* <span class="block text-lg font-medium leading-none">{{ car.specs.monthlyRate }}</span></p>
+                  <p class="mb-0">
+                    Rata netto/mies. od*
+                    <span class="block text-lg font-medium leading-none">{{
+                      car.specs.monthly_rate
+                    }}</span>
+                  </p>
                 </div>
                 <div class="w-1/2 md:w-1/3 md:px-4">
-                  <p class="mb-0">Cena brutto już od <span class="block text-lg font-medium leading-none">{{ car.specs.grossPrice }}</span></p>
+                  <p class="mb-0">
+                    Cena brutto już od
+                    <span class="block text-lg font-medium leading-none">{{
+                      car.specs.gross_price
+                    }}</span>
+                  </p>
                 </div>
               </div>
               <div class="mt-6 md:mt-10 lg:mt-12">
-                <base-link
-                  btn-style="primary"
-                  scroll-to="test-drive"
-                >
+                <base-link btn-style="primary" scroll-to="test-drive">
                   Umów jazdę próbną
                 </base-link>
               </div>
@@ -60,51 +73,39 @@ defineProps({
 
 const settings = ref({
   itemsToShow: 1,
-  transition: 300,
+  transition: 300
 });
 
 const breakpoints = ref({
   1024: {
-    itemsToShow: 1.4,
+    itemsToShow: 1.4
   },
   1280: {
-    itemsToShow: 1.6,
+    itemsToShow: 1.6
   },
   1400: {
-    itemsToShow: 1.8,
-  },
+    itemsToShow: 1.8
+  }
 });
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/styles.scss';
-
-$nav-button-size-mobile: 37px;
-$nav-button-size-desktop: 50px;
-  .carousel {
-    :deep(.carousel__prev),
-    :deep(.carousel__next) {
-      width: $nav-button-size-mobile;
-      height: $nav-button-size-mobile;
-      font-size: 23px;
-      @apply bg-white text-tertiary-grey hover:bg-btn-secondary mx-0;
-      @include md {
-        width: $nav-button-size-desktop;
-        height: $nav-button-size-desktop;
-        font-size: 25px;
-      }
-    }
-    :deep(.carousel__prev) {
-      @apply left-4 lg:left-[12vw] xl:left-[16vw] 2xl:left-[21vw];
-    }
-    :deep(.carousel__next) {
-      @apply right-4 lg:right-[12vw] xl:right-[16vw] 2xl:right-[21vw];
-    }
-    :deep(.carousel__slide) {
-      @apply opacity-50;
-    }
-    :deep(.carousel__slide--active) {
-      @apply opacity-100;
-    }
+.carousel {
+  :deep(.carousel__prev),
+  :deep(.carousel__next) {
+    @apply w-carousel-nav h-carousel-nav md:w-carousel-nav-desktop md:h-carousel-nav-desktop bg-white text-tertiary-grey hover:bg-btn-secondary mx-0 text-carousel-nav md:text-carousel-nav-desktop ease-in-out duration-300;
   }
+  :deep(.carousel__prev) {
+    @apply left-4 lg:left-[12vw] xl:left-[16vw] 2xl:left-[21vw];
+  }
+  :deep(.carousel__next) {
+    @apply right-4 lg:right-[12vw] xl:right-[16vw] 2xl:right-[21vw];
+  }
+  :deep(.carousel__slide) {
+    @apply opacity-50;
+  }
+  :deep(.carousel__slide--active) {
+    @apply opacity-100;
+  }
+}
 </style>

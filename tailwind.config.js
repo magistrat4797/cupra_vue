@@ -15,6 +15,7 @@ export default {
         "secondary-white": "#F5F5F5",
         "base-blue": "#007BFF",
         "dark-blue": "#0056B3",
+        "base-red": "#FF0000",
         "btn-primary": "#190F14",
         "btn-primary-hover": "#494949",
         "btn-secondary": "#DBD3CB",
@@ -30,8 +31,16 @@ export default {
         section: `calc(100vh - 84px)`,
         checkbox: "20px",
       },
+      width: {
+        "carousel-nav": "40px",
+        "carousel-nav-desktop": "50px"
+      },
       height: {
-        "select-option": "145px"
+        "select-option": "145px",
+        "input-mobile": "40px",
+        "input": "45px",
+        "carousel-nav": "40px",
+        "carousel-nav-desktop": "50px"
       },
       maxWidth: {
         form: "553px",
@@ -59,6 +68,7 @@ export default {
       "2xl": "1400px",
     },
     fontSize: {
+      "2xs": "13px",
       xs: "14px",
       sm: "15px",
       base: "16px",
@@ -70,6 +80,8 @@ export default {
       "sm-heading": "23px",
       "md-heading": "36px",
       "lg-heading": "48px",
+      "carousel-nav": "23px",
+      "carousel-nav-desktop": "25px",
     },
   },
 }

@@ -25,7 +25,7 @@
                 :href="socialLink.url"
                 :title="socialLink.name"
                 target="_blank"
-                class="text-primary-grey hover:text-tertiary-grey/70"
+                class="text-primary-grey hover:text-tertiary-grey/70 ease-in-out duration-300"
               >
                 <component :is="socialLink.icon" />
               </a>

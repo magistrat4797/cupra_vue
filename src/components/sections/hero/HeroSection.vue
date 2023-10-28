@@ -42,5 +42,6 @@ defineProps({
 <style lang="scss" scoped>
 .top-box {
   background: url('@/assets/images/top-box-bg.jpg') center no-repeat;
+  background-size: cover;
 }
 </style>
