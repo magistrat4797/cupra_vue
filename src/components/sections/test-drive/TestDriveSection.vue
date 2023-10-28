@@ -144,12 +144,13 @@ const submitForm = () => {
 
 const getSelectedCar = () => {
   if (props.cars.length > 0) {
-    selectedCarModel.value = props.cars[0].model.name;
+    selectedCarModel.value = props.cars[0].key;
   }
 }
 
 const formattedCars = computed(() =>
   props.cars.map((car) => ({
+    key: car.key,
     value: car.model.name,
     label: car.model.label,
     image: car.image

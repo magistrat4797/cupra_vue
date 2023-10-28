@@ -25,8 +25,8 @@
       <div
         class="cars-select__option"
         v-for="option in filteredOptions"
-        :key="option.value"
-        @click="selectOption(option.value)"
+        :key="option.key"
+        @click="selectOption(option.key)"
       >
         <div class="flex items-center">
           <div class="cars-select__option-image">
@@ -62,7 +62,7 @@ const props = defineProps({
 });
 
 const filteredOptions = computed(() => {
-  return props.options.filter((option) => option.value !== props.modelValue);
+  return props.options.filter((option) => option.key !== props.modelValue);
 });
 
 const outsideClickListener = (event: Event) => {
@@ -87,7 +87,7 @@ const selectOption = (value: string) => {
 };
 
 const selectedOption = computed(() => {
-  return props.options.find((option) => option.value === props.modelValue);
+  return props.options.find((option) => option.key === props.modelValue);
 });
 </script>
 

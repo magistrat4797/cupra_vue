@@ -1,7 +1,7 @@
 <template>
   <div class="cars-carousel">
     <carousel v-bind="settings" :breakpoints="breakpoints" :wrapAround="true">
-      <slide v-for="car in cars" :key="car.model.name">
+      <slide v-for="car in cars" :key="car.key">
         <div class="px-4 md:px-0">
           <div>
             <h2
