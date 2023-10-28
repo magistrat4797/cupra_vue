@@ -15,7 +15,11 @@
         <form @submit.prevent="submitForm" novalidate>
           <div class="flex justify-center">
             <div class="w-full sm:max-w-form mb-6 md:mb-12">
-              <cars-select :modelValue="selectedCarModel" :options="formattedCars" @update:modelValue="selectedCarModel = $event"/>
+              <cars-select
+                :modelValue="selectedCarModel"
+                :options="formattedCars"
+                @update:modelValue="selectedCarModel = $event"
+              />
               <div v-for="input in inputs" :key="input.key">
                 <base-input
                   :type="input.type"
@@ -68,11 +72,11 @@ const inputs: Input[] = [
   { key: 'name', type: 'text', placeholder: 'Imię *' },
   { key: 'surname', type: 'text', placeholder: 'Nazwisko (opcjonalnie)' },
   { key: 'email', type: 'email', placeholder: 'Adres e-mail *' },
-  { key: 'phone', type: 'tel', placeholder: 'Nr. telefonu *' },
+  { key: 'phone', type: 'tel', placeholder: 'Nr. telefonu *' }
 ];
 
 const getError = (key: string) => {
-  const error = errors.value.find(error => error.key === key);
+  const error = errors.value.find((error) => error.key === key);
   return error ? error.message : '';
 };
 
@@ -87,9 +91,9 @@ const validateField = (field: Input) => {
     addValidationError(field.key, 'Podaj imię');
   }
 
-
   if (field.key === 'phone') {
-    const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+    const phoneRegex =
+      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
     if (!value) {
       addValidationError(field.key, 'Podaj numer telefonu');
     } else if (!phoneRegex.test(value)) {
@@ -116,7 +120,7 @@ const submitForm = () => {
     const submittedData = {
       selectedCar: selectedCarModel.value,
       formData: formData.value,
-      checkboxes: store.filteredCheckboxes,
+      checkboxes: store.filteredCheckboxes
     };
 
     alert(JSON.stringify(submittedData, null, 2));
@@ -131,21 +135,19 @@ const fetchCars = async () => {
   }
 };
 
-const formattedCars = computed(
-  () => cars.value.map(
-      car => ({
-      value: car.model.name,
-      label: car.model.label,
-      image: car.image
-    })
-  )
+const formattedCars = computed(() =>
+  cars.value.map((car) => ({
+    value: car.model.name,
+    label: car.model.label,
+    image: car.image
+  }))
 );
 
 onMounted(fetchCars);
 </script>
 
 <style lang="scss" scoped>
-  .test-drive__text :deep(a) {
-    @apply ease-in-out duration-300 underline hover:text-dark-blue;
-  }
+.test-drive__text :deep(a) {
+  @apply ease-in-out duration-300 underline hover:text-dark-blue;
+}
 </style>

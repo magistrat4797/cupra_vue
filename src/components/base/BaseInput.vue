@@ -24,13 +24,12 @@ const props = defineProps({
     default: 'text'
   },
   placeholder: String,
-  error: String,
+  error: String
 });
 
 const internalValue = ref(props.modelValue);
 
-watch(internalValue, newValue => {
+watch(internalValue, (newValue) => {
   emit('update:modelValue', newValue);
 });
-
 </script>

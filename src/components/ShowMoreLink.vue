@@ -21,11 +21,11 @@ import { ref, watch } from 'vue';
 defineProps({
   label: {
     type: String,
-    required: true,
+    required: true
   },
   labelOpened: {
     type: String,
-    required: true,
+    required: true
   }
 });
 

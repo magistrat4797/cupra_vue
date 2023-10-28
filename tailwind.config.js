@@ -31,10 +31,16 @@ export default {
         section: `calc(100vh - 84px)`,
         checkbox: "20px",
       },
+      width: {
+        "carousel-nav": "40px",
+        "carousel-nav-desktop": "50px"
+      },
       height: {
         "select-option": "145px",
         "input-mobile": "40px",
         "input": "45px",
+        "carousel-nav": "40px",
+        "carousel-nav-desktop": "50px"
       },
       maxWidth: {
         form: "553px",
@@ -74,8 +80,8 @@ export default {
       "sm-heading": "23px",
       "md-heading": "36px",
       "lg-heading": "48px",
-      "carousel-nav-mobile": "23px",
-      "carousel-nav-desktop": "23px",
+      "carousel-nav": "23px",
+      "carousel-nav-desktop": "25px",
     },
   },
 }

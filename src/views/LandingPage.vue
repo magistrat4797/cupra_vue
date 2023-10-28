@@ -7,9 +7,7 @@
       >
       <template #subtitle>CUPRA Formentor</template>
       <template #actions>
-        <base-link btn-style="secondary" scroll-to="test-drive"
-          >Ruszaj na jazdę testową</base-link
-        >
+        <base-link btn-style="secondary" scroll-to="test-drive">Ruszaj na jazdę testową</base-link>
       </template>
     </hero-section>
     <car-showcase-section>
@@ -46,19 +44,30 @@
     <cars-section />
     <car-features-section :features="features" />
     <test-drive-section>
-      <template #subtitle
-        >Jazda próbna</template
-      >
+      <template #subtitle>Jazda próbna</template>
       <template #title>Umów się na bezpłatną jazdę próbną</template>
       <template #text>
-        <p>Wysłanie uzupełnionego formularza oznacza Twoją zgodę na kontakt w celu przedstawienia informacji handlowej w wybrany przez Ciebie sposób w związku z przesłanym zapytaniem.
+        <p>
+          Wysłanie uzupełnionego formularza oznacza Twoją zgodę na kontakt w celu przedstawienia
+          informacji handlowej w wybrany przez Ciebie sposób w związku z przesłanym zapytaniem.
           <show-more-link label="Czytaj więcej" label-opened="Zwiń">
             <template #hidden-text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque interdum leo vitae interdum. Mauris at justo nec lorem scelerisque fringilla. Nunc viverra sapien ac erat efficitur, sed porttitor lectus feugiat. Sed sollicitudin ullamcorper arcu, ac venenatis diam porttitor eu. Duis vel leo ornare, malesuada tellus ut, blandit ipsum. Phasellus convallis viverra ligula, eu viverra velit lobortis ac. Aliquam ac urna viverra mi euismod convallis nec egestas leo. Praesent tempor ut quam non congue. In ut scelerisque felis. Nulla non urna augue. Sed sodales non urna a fringilla. Vestibulum facilisis posuere mattis. Etiam elit nunc, scelerisque vitae magna eu, ornare tincidunt mauris.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque interdum
+              leo vitae interdum. Mauris at justo nec lorem scelerisque fringilla. Nunc viverra
+              sapien ac erat efficitur, sed porttitor lectus feugiat. Sed sollicitudin ullamcorper
+              arcu, ac venenatis diam porttitor eu. Duis vel leo ornare, malesuada tellus ut,
+              blandit ipsum. Phasellus convallis viverra ligula, eu viverra velit lobortis ac.
+              Aliquam ac urna viverra mi euismod convallis nec egestas leo. Praesent tempor ut quam
+              non congue. In ut scelerisque felis. Nulla non urna augue. Sed sodales non urna a
+              fringilla. Vestibulum facilisis posuere mattis. Etiam elit nunc, scelerisque vitae
+              magna eu, ornare tincidunt mauris.
             </template>
           </show-more-link>
         </p>
-        <p>Prosimy Cię też o wyrażenie poniższych zgód w celu możliwości przedstawiania Ci atrakcyjnych ofert / promocji produktów, akcesoriów i usług marki CUPRA w przyszłości.</p>
+        <p>
+          Prosimy Cię też o wyrażenie poniższych zgód w celu możliwości przedstawiania Ci
+          atrakcyjnych ofert / promocji produktów, akcesoriów i usług marki CUPRA w przyszłości.
+        </p>
         <template v-for="checkbox in consentCheckboxes" :key="checkbox.key">
           <base-checkbox
             :label="checkbox.label"
@@ -66,9 +75,24 @@
             @update:modelValue="updateCheckbox(checkbox.key, $event)"
           />
         </template>
-        <p>Masz prawo do wglądu, modyfikacji, ograniczenia przetwarzania i usunięcia swoich danych oraz do wycofania w&nbsp;każdym momencie swojej zgody.</p>
-        <p>Twoje dane będą przetwarzane tylko w stopniu umożliwiającym realizację wymienionego celu.</p>
-        <p>Administratorem Twoich danych jest Plichta spółka z ograniczoną odpowiedzialnością Spółka Komandytowa, z&nbsp;siedzibą w Wejherowie przy ulicy Gdańskiej 13c. Zapraszamy do zapoznania się z naszą polityką prywatności umieszczoną pod linkiem: <a href="https://www.plichta.com.pl/polityka-prywatnosci" title="Polityka prywatności" target="_blank">https://www.plichta.com.pl/polityka-prywatnosci</a></p>
+        <p>
+          Masz prawo do wglądu, modyfikacji, ograniczenia przetwarzania i usunięcia swoich danych
+          oraz do wycofania w&nbsp;każdym momencie swojej zgody.
+        </p>
+        <p>
+          Twoje dane będą przetwarzane tylko w stopniu umożliwiającym realizację wymienionego celu.
+        </p>
+        <p>
+          Administratorem Twoich danych jest Plichta spółka z ograniczoną odpowiedzialnością Spółka
+          Komandytowa, z&nbsp;siedzibą w Wejherowie przy ulicy Gdańskiej 13c. Zapraszamy do
+          zapoznania się z naszą polityką prywatności umieszczoną pod linkiem:
+          <a
+            href="https://www.plichta.com.pl/polityka-prywatnosci"
+            title="Polityka prywatności"
+            target="_blank"
+            >https://www.plichta.com.pl/polityka-prywatnosci</a
+          >
+        </p>
       </template>
       <template #actions>
         <base-button type="submit" btn-style="primary">Umów jazdę próbną</base-button>
@@ -102,19 +126,20 @@ const updateCheckbox = (key: string, value: boolean) => {
 const consentCheckboxes = [
   {
     key: 'general_consent',
-    label: "Zgadzam się na przetwarzanie moich danych osobowych przez Plichta spółka z ograniczoną odpowiedzialnością Spółka Komandytowa w celu przedstawienia mi informacji marketingowych i handlowych dotyczących produktów i usług marki CUPRA oraz innych powiązanych z marką CUPRA akcesoriów, produktów i usług motoryzacyjnych za pomocą:"
+    label:
+      'Zgadzam się na przetwarzanie moich danych osobowych przez Plichta spółka z ograniczoną odpowiedzialnością Spółka Komandytowa w celu przedstawienia mi informacji marketingowych i handlowych dotyczących produktów i usług marki CUPRA oraz innych powiązanych z marką CUPRA akcesoriów, produktów i usług motoryzacyjnych za pomocą:'
   },
   {
     key: 'email',
-    label: "E-mail"
+    label: 'E-mail'
   },
   {
     key: 'phone',
-    label: "Telefon"
+    label: 'Telefon'
   },
   {
     key: 'sms_mms',
-    label: "Wiadomość SMS/MMS"
+    label: 'Wiadomość SMS/MMS'
   }
 ];
 

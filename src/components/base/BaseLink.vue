@@ -5,10 +5,12 @@
     :class="{
       'bg-btn-primary outline-btn-primary hover:outline-btn-primary-hover hover:bg-btn-primary-hover text-white':
         btnStyle === 'primary',
-      'bg-transparent outline-black duration-0 hover:outline-2 text-black': btnStyle === 'primary-outlined',
+      'bg-transparent outline-black duration-0 hover:outline-2 text-black':
+        btnStyle === 'primary-outlined',
       'bg-btn-secondary outline-btn-secondary hover:outline-btn-secondary-hover hover:bg-btn-secondary-hover text-black':
         btnStyle === 'secondary',
-      'bg-transparent  outline-white duration-0 hover:outline-2 text-white': btnStyle === 'secondary-outlined',
+      'bg-transparent  outline-white duration-0 hover:outline-2 text-white':
+        btnStyle === 'secondary-outlined',
       'bg-white outline-white hover:outline-btn-secondary hover:bg-btn-secondary text-black':
         btnStyle === 'white'
     }"

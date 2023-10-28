@@ -26,6 +26,6 @@ export const useStore = defineStore('store', {
     },
     setCheckbox(key: string, value: boolean) {
       this.checkboxes[key] = value;
-    },
+    }
   }
 });

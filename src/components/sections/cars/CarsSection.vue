@@ -15,7 +15,6 @@ const store = useStore();
 
 const cars = ref<CarDetails[]>([]);
 
-
 const fetchCars = async () => {
   await store.fetchCars();
   cars.value = store.cars;
