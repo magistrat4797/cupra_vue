@@ -93,33 +93,35 @@ const addValidationError = (key: string, message: string) => {
 
 const validateField = (field: Input) => {
   const value = formData.value[field.key];
-  let hasError = false;
-  if (!value) {
-    hasError = true;
-  }
-  if (field.key === 'name' && !value) {
-    addValidationError(field.key, 'Podaj imię');
+  let errorMessage = null;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+
+  switch (field.key) {
+    case 'name':
+      if (!value) {
+        errorMessage = 'Podaj imię';
+      }
+      break;
+    case 'phone':
+      if (!value) {
+        errorMessage = 'Podaj numer telefonu';
+      } else if (!phoneRegex.test(value)) {
+        errorMessage = 'Nieprawidłowy format telefonu';
+      }
+      break;
+    case 'email':
+      if (!value) {
+        errorMessage = 'Podaj adres e-mail';
+      } else if (!emailRegex.test(value)) {
+        errorMessage = 'Nieprawidłowy format e-maila';
+      }
+      break;
   }
 
-  if (field.key === 'phone') {
-    const phoneRegex =
-      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
-    if (!value) {
-      addValidationError(field.key, 'Podaj numer telefonu');
-    } else if (!phoneRegex.test(value)) {
-      addValidationError(field.key, 'Nieprawidłowy format telefonu');
-    }
-  }
-
-  if (field.key === 'email') {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!value) {
-      addValidationError(field.key, 'Podaj adres e-mail');
-    } else if (!emailRegex.test(value)) {
-      addValidationError(field.key, 'Nieprawidłowy format e-maila');
-    }
-  }
-  if (hasError) {
+  if (errorMessage) {
+    addValidationError(field.key, errorMessage);
     scrollToComponent(null, 'test-drive-form', 84);
   }
 };
