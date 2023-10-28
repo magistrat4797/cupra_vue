@@ -132,13 +132,13 @@ const submitForm = () => {
   inputs.forEach(validateField);
 
   if (errors.value.length === 0) {
-    const submittedData = {
-      selectedCar: selectedCarModel.value,
-      formData: formData.value,
+    const data = {
+      selected_car: selectedCarModel.value,
+      form_data: formData.value,
       checkboxes: store.filteredCheckboxes
     };
 
-    alert(JSON.stringify(submittedData, null, 2)); // Submit data presenting
+    alert(JSON.stringify(data, null, 2)); // Submit data presenting
   }
 };
 
