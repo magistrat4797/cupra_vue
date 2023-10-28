@@ -131,12 +131,8 @@ const updateCheckbox = (key: string, value: boolean) => {
 };
 
 const fetchCars = async () => {
-  try {
-    await store.fetchCars();
-    cars.value = store.cars;
-  } catch (error) {
-    console.error('Wystąpił błąd podczas pobierania danych:', error);
-  }
+  await store.fetchCars();
+  cars.value = store.cars;
 };
 
 onMounted(fetchCars);
