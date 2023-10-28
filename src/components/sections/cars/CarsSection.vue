@@ -6,19 +6,19 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
-import { useCarsStore } from '@/stores/carsStore';
+import { useStore } from '@/stores/store';
 import type { CarDetails } from '@/models/CarDetails';
 
 import CarsCarousel from '@/components/CarsCarousel.vue';
 
-const carsStore = useCarsStore();
+const store = useStore();
 
 const cars = ref<CarDetails[]>([]);
 
 
 const fetchCars = async () => {
-  await carsStore.fetchCars();
-  cars.value = carsStore.cars;
+  await store.fetchCars();
+  cars.value = store.cars;
 };
 
 onMounted(fetchCars);

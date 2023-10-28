@@ -59,8 +59,12 @@
           </show-more-link>
         </p>
         <p>Prosimy Cię też o wyrażenie poniższych zgód w celu możliwości przedstawiania Ci atrakcyjnych ofert / promocji produktów, akcesoriów i usług marki CUPRA w przyszłości.</p>
-        <template v-for="(checkbox) in testDriveCheckboxes" :key="checkbox">
-          <base-checkbox :label="checkbox" />
+        <template v-for="checkbox in consentCheckboxes" :key="checkbox.key">
+          <base-checkbox
+            :label="checkbox.label"
+            :model-value="store.checkboxes[checkbox.key]"
+            @update:modelValue="updateCheckbox(checkbox.key, $event)"
+          />
         </template>
         <p>Masz prawo do wglądu, modyfikacji, ograniczenia przetwarzania i usunięcia swoich danych oraz do wycofania w&nbsp;każdym momencie swojej zgody.</p>
         <p>Twoje dane będą przetwarzane tylko w stopniu umożliwiającym realizację wymienionego celu.</p>
@@ -87,11 +91,31 @@ import CarsSection from '@/components/sections/cars/CarsSection.vue';
 import CarFeaturesSection from '@/components/sections/car/CarFeaturesSection.vue';
 import TestDriveSection from '@/components/sections/test-drive/TestDriveSection.vue';
 
-const testDriveCheckboxes = [
-  "Zgadzam się na przetwarzanie moich danych osobowych przez Plichta spółka z ograniczoną odpowiedzialnością Spółka Komandytowa w celu przedstawienia mi informacji marketingowych i handlowych dotyczących produktów i usług marki CUPRA oraz innych powiązanych z marką CUPRA akcesoriów, produktów i usług motoryzacyjnych za pomocą:",
-  "E-mail",
-  "Telefon",
-  "Wiadomość SMS/MMS"
+import { useStore } from '@/stores/store';
+
+const store = useStore();
+
+const updateCheckbox = (key: string, value: boolean) => {
+  store.setCheckbox(key, value);
+};
+
+const consentCheckboxes = [
+  {
+    key: 'general_consent',
+    label: "Zgadzam się na przetwarzanie moich danych osobowych przez Plichta spółka z ograniczoną odpowiedzialnością Spółka Komandytowa w celu przedstawienia mi informacji marketingowych i handlowych dotyczących produktów i usług marki CUPRA oraz innych powiązanych z marką CUPRA akcesoriów, produktów i usług motoryzacyjnych za pomocą:"
+  },
+  {
+    key: 'email',
+    label: "E-mail"
+  },
+  {
+    key: 'phone',
+    label: "Telefon"
+  },
+  {
+    key: 'sms_mms',
+    label: "Wiadomość SMS/MMS"
+  }
 ];
 
 const features = [

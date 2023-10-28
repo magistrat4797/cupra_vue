@@ -45,12 +45,12 @@ import MainContainer from '@/components/MainContainer.vue';
 import CarsSelect from '@/components/CarsSelect.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
 import BaseButton from '@/components/base/BaseButton.vue';
-import { useCarsStore } from '@/stores/carsStore';
+import { useStore } from '@/stores/store';
 
 import type { FormData, Input } from '@/models/TestDrive';
 import type { CarDetails } from '@/models/CarDetails';
 
-const carsStore = useCarsStore();
+const store = useStore();
 
 const cars = ref<CarDetails[]>([]);
 const selectedCarModel = ref('');
@@ -113,13 +113,19 @@ const submitForm = () => {
   inputs.forEach(validateField);
 
   if (errors.value.length === 0) {
-    console.log('submitted');
+    const submittedData = {
+      selectedCar: selectedCarModel.value,
+      formData: formData.value,
+      checkboxes: store.filteredCheckboxes,
+    };
+
+    alert(JSON.stringify(submittedData, null, 2));
   }
 };
 
 const fetchCars = async () => {
-  await carsStore.fetchCars();
-  cars.value = carsStore.cars;
+  await store.fetchCars();
+  cars.value = store.cars;
   if (cars.value.length > 0) {
     selectedCarModel.value = cars.value[0].model.name;
   }
