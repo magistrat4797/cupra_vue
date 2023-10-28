@@ -6,7 +6,7 @@
       :placeholder="placeholder"
       class="text-tertiary-grey h-input-mobile md:h-input bg-transparent placeholder:text-tertiary-grey focus:outline-none border-b border-secondary-grey w-full text-sm md:text-base"
     />
-    <div v-if="error" class="text-2xs text-red-500 text-right leading-normal">
+    <div v-if="error" class="text-2xs text-base-red text-right leading-5">
       {{ error }}
     </div>
   </div>

@@ -15,6 +15,7 @@ export default {
         "secondary-white": "#F5F5F5",
         "base-blue": "#007BFF",
         "dark-blue": "#0056B3",
+        "base-red": "#FF0000",
         "btn-primary": "#190F14",
         "btn-primary-hover": "#494949",
         "btn-secondary": "#DBD3CB",
