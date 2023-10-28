@@ -7,7 +7,7 @@
             <slot name="subtitle" />
           </h3>
           <h2
-            class="font-light text-sm-heading md:text-xl md:leading-9 lg:text-md-heading lg:leading-tight"
+            class="font-light text-sm-heading md:text-xl leading-snug md:leading-9 lg:text-md-heading lg:leading-tight"
           >
             <slot name="title" />
           </h2>
