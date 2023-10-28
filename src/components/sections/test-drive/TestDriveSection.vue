@@ -21,7 +21,7 @@
                   :type="input.type"
                   v-model="formData[input.key]"
                   :placeholder="input.placeholder"
-                  :error="findError(input.key)"
+                  :error="getError(input.key)"
                 />
               </div>
               <span class="blok text-2xs font-light">* Pole wymagane</span>
@@ -71,29 +71,46 @@ const inputs: Input[] = [
   { key: 'phone', type: 'tel', placeholder: 'Nr. telefonu *' },
 ];
 
-const findError = (key: string) => {
-  const errorObj = errors.value.find(error => error.key === key);
-  return errorObj ? errorObj.message : '';
+const getError = (key: string) => {
+  const error = errors.value.find(error => error.key === key);
+  return error ? error.message : '';
+};
+
+const addValidationError = (key: string, message: string) => {
+  errors.value.push({ key, message });
+};
+
+const validateField = (field: Input) => {
+  const value = formData.value[field.key];
+
+  if (field.key === 'name' && !value) {
+    addValidationError(field.key, 'Podaj imię');
+  }
+
+
+  if (field.key === 'phone') {
+    const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+    if (!value) {
+      addValidationError(field.key, 'Podaj numer telefonu');
+    } else if (!phoneRegex.test(value)) {
+      addValidationError(field.key, 'Nieprawidłowy format telefonu');
+    }
+  }
+
+  if (field.key === 'email') {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!value) {
+      addValidationError(field.key, 'Podaj adres e-mail');
+    } else if (!emailRegex.test(value)) {
+      addValidationError(field.key, 'Nieprawidłowy format e-maila');
+    }
+  }
 };
 
 const submitForm = () => {
   errors.value = [];
 
-  if (!formData.value.name) {
-    errors.value.push({ key: 'name', message: 'Podaj imię' });
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!formData.value.email) {
-    errors.value.push({ key: 'email', message: 'Podaj adres e-mail' });
-  } else if (!emailRegex.test(formData.value.email)) {
-    errors.value.push({ key: 'email', message: 'Nieprawidłowy format e-maila' });
-  }
-
-  if (!formData.value.phone) {
-    errors.value.push({ key: 'phone', message: 'Podaj numer telefonu' });
-  }
+  inputs.forEach(validateField);
 
   if (errors.value.length === 0) {
     console.log('submitted');
