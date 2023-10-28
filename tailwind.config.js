@@ -73,6 +73,8 @@ export default {
       "sm-heading": "23px",
       "md-heading": "36px",
       "lg-heading": "48px",
+      "carousel-nav-mobile": "23px",
+      "carousel-nav-desktop": "23px",
     },
   },
 }

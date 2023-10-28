@@ -81,17 +81,19 @@ const breakpoints = ref({
 
 $nav-button-size-mobile: 37px;
 $nav-button-size-desktop: 50px;
+
+$nav-button-font-size-mobile: 23px;
+$nav-button-font-size-desktop: 25px;
   .carousel {
     :deep(.carousel__prev),
     :deep(.carousel__next) {
       width: $nav-button-size-mobile;
       height: $nav-button-size-mobile;
-      font-size: 23px;
-      @apply bg-white text-tertiary-grey hover:bg-btn-secondary mx-0;
+      @apply bg-white text-tertiary-grey hover:bg-btn-secondary mx-0 text-carousel-nav-mobile ease-in-out duration-300;
       @include md {
         width: $nav-button-size-desktop;
         height: $nav-button-size-desktop;
-        font-size: 25px;
+        @apply text-carousel-nav-desktop;
       }
     }
     :deep(.carousel__prev) {

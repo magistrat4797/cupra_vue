@@ -44,7 +44,12 @@ watch(
 </script>
 
 <style lang="scss" scoped>
-.base-checkbox__input:checked ~ .base-checkbox__box:before {
-  @apply content-[''] absolute left-[3px] right-[3px] top-[3px] bottom-[3px] bg-checkbox-selected;
-}
+  .base-checkbox {
+    &__box:before {
+      @apply ease-in-out duration-200 content-[''] absolute left-[3px] right-[3px] top-[3px] bottom-[3px] bg-checkbox-selected opacity-0;
+    }
+    &__input:checked ~ .base-checkbox__box:before {
+      @apply opacity-100;
+    }
+  }
 </style>

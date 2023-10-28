@@ -14,7 +14,7 @@
         </div>
         <form @submit.prevent="submitForm" novalidate>
           <div class="flex justify-center">
-            <div class="w-full md:max-w-form">
+            <div class="w-full sm:max-w-form mb-6 md:mb-12">
               <cars-select :modelValue="selectedCarModel" :options="formattedCars" @update:modelValue="selectedCarModel = $event"/>
               <div v-for="input in inputs" :key="input.key">
                 <base-input
@@ -24,6 +24,7 @@
                   :error="findError(input.key)"
                 />
               </div>
+              <span class="blok text-2xs font-light">* Pole wymagane</span>
             </div>
           </div>
           <div class="test-drive__text text-2xs pb-4 md:pb-6 leading-normal">
@@ -122,6 +123,6 @@ onMounted(fetchCars);
 
 <style lang="scss" scoped>
   .test-drive__text :deep(a) {
-    @apply underline hover:text-dark-blue;
+    @apply ease-in-out duration-300 underline hover:text-dark-blue;
   }
 </style>

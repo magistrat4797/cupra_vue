@@ -4,13 +4,13 @@
       <div class="cars-select__option">
         <div class="flex items-center">
           <div class="cars-select__option-image">
-            <img :src="`/src/assets/images/cars/${selectedOption?.image}`" :alt="selectedOption?.label" />
+            <img :src="`/src/assets/images/cars/miniatures/${selectedOption?.image}`" :alt="selectedOption?.label" />
           </div>
-          <div class="text-xs md:text-base">
+          <div class="text-2xs xs:text-xs md:text-base">
             {{ selectedOption?.label }}
           </div>
         </div>
-        <span class="block mx-4 relative w-4 h-4 transform duration-200" :class="{ 'rotate-180': showOptions }">
+        <span class="block mx-2 xs:mx-4 relative w-3 h-3 xs:w-4 xs:h-4 transform duration-300" :class="{ 'rotate-180': showOptions }">
           <arrow-icon class="absolute inset-0 w-full h-full"/>
         </span>
       </div>
@@ -19,9 +19,9 @@
       <div class="cars-select__option" v-for="option in filteredOptions" :key="option.value" @click="selectOption(option.value)">
         <div class="flex items-center">
           <div class="cars-select__option-image">
-            <img :src="`/src/assets/images/cars/${option.image}`" :alt="option.label" />
+            <img :src="`/src/assets/images/cars/miniatures/${option.image}`" :alt="option.label" />
           </div>
-          <div class="text-xs md:text-base pr-4">
+          <div class="text-2xs xs:text-xs md:text-base pr-2 xs:pr-4">
             {{ option.label }}
           </div>
         </div>
@@ -84,9 +84,9 @@ const selectedOption = computed(() => {
 <style lang="scss" scoped>
   .cars-select {
     &__option {
-      @apply relative flex items-center justify-between h-20 xs:h-24 sm:h-28 md:h-select-option z-1;
+      @apply relative flex items-center justify-between h-20 xs:h-28 md:h-select-option z-1;
       &:after {
-        @apply content-[''] absolute right-0 top-0 h-full border border-secondary-grey -z-1 bg-secondary-white w-full sm:w-[calc(100%-50px)];
+        @apply content-[''] absolute right-0 top-0 h-full border border-secondary-grey -z-1 bg-secondary-white w-full xs:w-[calc(100%-50px)];
       }
       & + .cars-select__option {
         &:after {
@@ -94,7 +94,7 @@ const selectedOption = computed(() => {
         }
       }
       &-image {
-        @apply w-full max-w-[150px] xs:max-w-[220px] sm:max-w-[300px];
+        @apply w-full max-w-[150px] xs:max-w-[280px];
       }
       .cars-select__options-list & {
         &:after {

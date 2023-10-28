@@ -1,5 +1,5 @@
 <template>
-  <div class="input-container mb-4 md:mb-5">
+  <div class="input-container mb-3 md:mb-5">
     <input
       :type="type"
       v-model="internalValue"
