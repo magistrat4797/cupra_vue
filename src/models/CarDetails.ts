@@ -5,9 +5,9 @@ export interface CarDetails {
   };
   image: string;
   specs: {
-    powerDetails: string;
-    leaseAvailability: string;
-    monthlyRate: string;
-    grossPrice: string;
+    power_details: string;
+    lease_availability: string;
+    monthly_rate: string;
+    gross_price: string;
   };
 }

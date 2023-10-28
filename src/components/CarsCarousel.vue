@@ -10,17 +10,17 @@
           <div class="flex justify-center">
             <div class="flex flex-col justify-center w-full max-w-carousel-slide-info">
               <div class="mt-2 md:mt-4 lg:mt-8 mb-4 md:mb-8 lg:mb-12 px-12 md:px-4">
-                <p class="mb-0 font-light text-xs">{{ car.specs.powerDetails }}</p>
+                <p class="mb-0 font-light text-xs">{{ car.specs.power_details }}</p>
               </div>
               <div class="flex flex-wrap justify-between items-center text-xs font-light">
                 <div class="w-full md:w-1/3 md:px-4 mb-1 md:mb-0">
-                  <p class="mb-0">Dostępny w leasingu z {{ car.specs.leaseAvailability }} opłaty własnej</p>
+                  <p class="mb-0">Dostępny w leasingu z {{ car.specs.lease_availability }} opłaty własnej</p>
                 </div>
                 <div class="w-1/2 md:w-1/3 md:px-4">
-                  <p class="mb-0">Rata netto/mies. od* <span class="block text-lg font-medium leading-none">{{ car.specs.monthlyRate }}</span></p>
+                  <p class="mb-0">Rata netto/mies. od* <span class="block text-lg font-medium leading-none">{{ car.specs.monthly_rate }}</span></p>
                 </div>
                 <div class="w-1/2 md:w-1/3 md:px-4">
-                  <p class="mb-0">Cena brutto już od <span class="block text-lg font-medium leading-none">{{ car.specs.grossPrice }}</span></p>
+                  <p class="mb-0">Cena brutto już od <span class="block text-lg font-medium leading-none">{{ car.specs.gross_price }}</span></p>
                 </div>
               </div>
               <div class="mt-6 md:mt-10 lg:mt-12">
