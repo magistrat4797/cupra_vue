@@ -41,9 +41,10 @@
         <base-link btn-style="secondary" scroll-to="test-drive">Umów jazdę próbną</base-link>
       </template>
     </car-showcase-section>
-    <cars-section />
+    <cars-carousel-section :cars="cars" />
     <car-features-section :features="features" />
-    <test-drive-section>
+    
+    <test-drive-section :cars="cars">
       <template #subtitle>Jazda próbna</template>
       <template #title>Umów się na bezpłatną jazdę próbną</template>
       <template #text>
@@ -103,6 +104,8 @@
 </template>
 
 <script lang="ts" setup>
+import { ref, onMounted } from 'vue';
+
 import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import ShowMoreLink from '@/components/ShowMoreLink.vue';
@@ -111,17 +114,32 @@ import BaseButton from '@/components/base/BaseButton.vue';
 import BaseCheckbox from '@/components/base/BaseCheckbox.vue';
 import HeroSection from '@/components/sections/hero/HeroSection.vue';
 import CarShowcaseSection from '@/components/sections/car/CarShowcaseSection.vue';
-import CarsSection from '@/components/sections/cars/CarsSection.vue';
+import CarsCarouselSection from '@/components/sections/cars-carousel/CarsCarouselSection.vue';
 import CarFeaturesSection from '@/components/sections/car/CarFeaturesSection.vue';
 import TestDriveSection from '@/components/sections/test-drive/TestDriveSection.vue';
 
 import { useStore } from '@/stores/store';
 
+import type { CarDetails } from '@/models/CarDetails';
+
 const store = useStore();
+
+const cars = ref<CarDetails[]>([]);
 
 const updateCheckbox = (key: string, value: boolean) => {
   store.setCheckbox(key, value);
 };
+
+const fetchCars = async () => {
+  try {
+    await store.fetchCars();
+    cars.value = store.cars;
+  } catch (error) {
+    console.error('Wystąpił błąd podczas pobierania danych:', error);
+  }
+};
+
+onMounted(fetchCars);
 
 const consentCheckboxes = [
   {

@@ -58,7 +58,6 @@ const props = defineProps({
   options: {
     type: Array as () => SelectOption[],
     required: true,
-    default: () => []
   }
 });
 

@@ -1,6 +1,6 @@
 export default function useScroll() {
   const scrollToComponent = (
-    event: MouseEvent,
+    event?: MouseEvent | null,
     targetId: string | undefined,
     offset: number = 0
   ) => {

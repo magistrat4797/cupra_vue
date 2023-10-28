@@ -12,7 +12,7 @@
             <slot name="title" />
           </h2>
         </div>
-        <form @submit.prevent="submitForm" novalidate>
+        <form id="test-drive-form" @submit.prevent="submitForm" novalidate>
           <div class="flex justify-center">
             <div class="w-full sm:max-w-form mb-6 md:mb-12">
               <cars-select
@@ -28,7 +28,7 @@
                   :error="getError(input.key)"
                 />
               </div>
-              <span class="blok text-2xs font-light">* Pole wymagane</span>
+              <span class="block text-2xs font-light">* Pole wymagane</span>
             </div>
           </div>
           <div class="test-drive__text text-2xs pb-4 md:pb-6 leading-normal">
@@ -44,19 +44,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, watch } from 'vue';
+
 import MainContainer from '@/components/MainContainer.vue';
 import CarsSelect from '@/components/CarsSelect.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
 import BaseButton from '@/components/base/BaseButton.vue';
+
 import { useStore } from '@/stores/store';
+import useScroll from '@/composables/useScroll';
 
 import type { FormData, Input } from '@/models/TestDrive';
 import type { CarDetails } from '@/models/CarDetails';
 
 const store = useStore();
+const { scrollToComponent } = useScroll();
 
-const cars = ref<CarDetails[]>([]);
 const selectedCarModel = ref('');
 
 const formData = ref<FormData>({
@@ -65,6 +68,10 @@ const formData = ref<FormData>({
   email: '',
   phone: ''
 });
+
+const props = defineProps<{
+  cars: CarDetails[];
+}>();
 
 const errors = ref<Array<{ key: string; message: string }>>([]);
 
@@ -86,7 +93,10 @@ const addValidationError = (key: string, message: string) => {
 
 const validateField = (field: Input) => {
   const value = formData.value[field.key];
-
+  let hasError = false;
+  if (!value) {
+    hasError = true;
+  }
   if (field.key === 'name' && !value) {
     addValidationError(field.key, 'Podaj imię');
   }
@@ -109,6 +119,9 @@ const validateField = (field: Input) => {
       addValidationError(field.key, 'Nieprawidłowy format e-maila');
     }
   }
+  if (hasError) {
+    scrollToComponent(null, 'test-drive-form', 84);
+  }
 };
 
 const submitForm = () => {
@@ -123,27 +136,33 @@ const submitForm = () => {
       checkboxes: store.filteredCheckboxes
     };
 
-    alert(JSON.stringify(submittedData, null, 2));
+    alert(JSON.stringify(submittedData, null, 2)); // Submit data presenting
   }
 };
 
-const fetchCars = async () => {
-  await store.fetchCars();
-  cars.value = store.cars;
-  if (cars.value.length > 0) {
-    selectedCarModel.value = cars.value[0].model.name;
+const getSelectedCar = () => {
+  if (props.cars.length > 0) {
+    selectedCarModel.value = props.cars[0].model.name;
   }
-};
+}
 
 const formattedCars = computed(() =>
-  cars.value.map((car) => ({
+  props.cars.map((car) => ({
     value: car.model.name,
     label: car.model.label,
     image: car.image
   }))
 );
 
-onMounted(fetchCars);
+watch(
+  () => props.cars,
+  (newVal) => {
+    if (newVal.length > 0) {
+      getSelectedCar();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>
