@@ -100,6 +100,7 @@
       </template>
     </test-drive-section>
     <the-footer />
+    <scroll-top-button />
   </div>
 </template>
 
@@ -112,6 +113,7 @@ import ShowMoreLink from '@/components/ShowMoreLink.vue';
 import BaseLink from '@/components/base/BaseLink.vue';
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseCheckbox from '@/components/base/BaseCheckbox.vue';
+import ScrollTopButton from "@/components/ScrollTopButton.vue";
 import HeroSection from '@/components/sections/hero/HeroSection.vue';
 import CarShowcaseSection from '@/components/sections/car/CarShowcaseSection.vue';
 import CarsCarouselSection from '@/components/sections/cars-carousel/CarsCarouselSection.vue';

@@ -33,10 +33,6 @@ import MainContainer from '@/components/MainContainer.vue';
 import { useSlots } from 'vue';
 
 const slots = useSlots();
-
-defineProps({
-  photo: String
-});
 </script>
 
 <style lang="scss" scoped>

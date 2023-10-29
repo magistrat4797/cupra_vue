@@ -56,7 +56,7 @@ export default {
       },
       zIndex: {
         1: "1",
-        100: "100",
+        "header": "100",
       },
     },
     screens: {
