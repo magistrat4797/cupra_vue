@@ -1,5 +1,5 @@
 <template>
-  <header class="header fixed top-0 left-0 right-0 z-100 bg-secondary-white" ref="header">
+  <header class="header fixed top-0 left-0 right-0 z-header bg-secondary-white" ref="header">
     <main-container>
       <div class="header-box flex flex-wrap justify-between items-center min-h-header h-auto">
         <div class="flex items-center mr-4 xl:mr-16 2xl:mr-24">

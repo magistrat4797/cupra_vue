@@ -16,7 +16,12 @@ export default function useScroll() {
     window.scrollTo({ top: position, behavior: 'smooth' });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return {
-    scrollToComponent
+    scrollToComponent,
+    scrollToTop
   };
 }
