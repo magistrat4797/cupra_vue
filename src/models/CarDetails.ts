@@ -1,5 +1,5 @@
 export interface CarDetails {
-  key: string,
+  key: string;
   model: {
     name: string;
     label: string;

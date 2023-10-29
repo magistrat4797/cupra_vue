@@ -146,7 +146,7 @@ const getSelectedCar = () => {
   if (props.cars.length > 0) {
     selectedCarModel.value = props.cars[0].key;
   }
-}
+};
 
 const formattedCars = computed(() =>
   props.cars.map((car) => ({
