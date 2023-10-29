@@ -43,7 +43,7 @@
     </car-showcase-section>
     <cars-carousel-section :cars="cars" />
     <car-features-section :features="features" />
-    
+
     <test-drive-section :cars="cars">
       <template #subtitle>Jazda próbna</template>
       <template #title>Umów się na bezpłatną jazdę próbną</template>
@@ -113,7 +113,7 @@ import ShowMoreLink from '@/components/ShowMoreLink.vue';
 import BaseLink from '@/components/base/BaseLink.vue';
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseCheckbox from '@/components/base/BaseCheckbox.vue';
-import ScrollTopButton from "@/components/ScrollTopButton.vue";
+import ScrollTopButton from '@/components/ScrollTopButton.vue';
 import HeroSection from '@/components/sections/hero/HeroSection.vue';
 import CarShowcaseSection from '@/components/sections/car/CarShowcaseSection.vue';
 import CarsCarouselSection from '@/components/sections/cars-carousel/CarsCarouselSection.vue';
