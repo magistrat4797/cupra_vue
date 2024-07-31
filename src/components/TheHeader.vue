@@ -42,7 +42,12 @@
             >
               +48 58 506 65 65
             </a>
-            <base-link btn-style="primary-outlined" class="w-full max-w-[200px] xl:w-auto">
+            <base-link
+              btn-style="primary-outlined"
+              class="w-full max-w-[200px] xl:w-auto"
+              scroll-to="test-drive"
+              @click="closeMenuOnButtonClick"
+            >
               Zapytaj o ofertę
             </base-link>
             <base-link
