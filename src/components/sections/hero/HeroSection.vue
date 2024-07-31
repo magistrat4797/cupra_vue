@@ -1,10 +1,10 @@
 <template>
-  <section class="top-box pt-header flex items-center md:items-end relative h-screen">
-    <main-container>
-      <div class="md:pb-[140px] text-white max-w-[740px] text-center md:text-left">
+  <section class="top-box pt-header flex items-center relative h-screen">
+    <main-container class="z-1">
+      <div class="text-white max-w-[740px] text-center md:text-left">
         <template v-if="slots.subtitle">
           <div class="mb-2 md:mb-4">
-            <h2 class="text-base md:text-lg opacity-50 leading-6">
+            <h2 class="text-base md:text-lg leading-6">
               <slot name="subtitle" />
             </h2>
           </div>
@@ -36,8 +36,23 @@ const slots = useSlots();
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/styles.scss';
+
 .top-box {
   background: url('@/assets/images/top-box-bg.jpg') center no-repeat;
   background-size: cover;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, .45);
+  }
+  @include xs {
+    background-position-x: 55%;
+  }
 }
 </style>

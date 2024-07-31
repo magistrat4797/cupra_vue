@@ -89,8 +89,10 @@
           zapoznania się z naszą polityką prywatności umieszczoną pod linkiem:
           <a
             href="https://www.plichta.com.pl/polityka-prywatnosci"
+            class="inline-link"
             title="Polityka prywatności"
             target="_blank"
+            rel="nofollow"
             >https://www.plichta.com.pl/polityka-prywatnosci</a
           >
         </p>
