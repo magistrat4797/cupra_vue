@@ -49,7 +49,7 @@ const slots = useSlots();
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(#000, .45);
+    background: rgba(#000, 0.45);
   }
   @include xs {
     background-position-x: 55%;
