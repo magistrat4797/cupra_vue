@@ -39,7 +39,7 @@ const slots = useSlots();
 @import '@/assets/styles/styles.scss';
 
 .top-box {
-  background: url('@/assets/images/top-box-bg.jpg') center no-repeat;
+  background: url('/images/top-box-bg.jpg') center no-repeat;
   background-size: cover;
   position: relative;
   &:before {

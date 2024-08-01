@@ -18,7 +18,7 @@ export const useStore = defineStore('store', {
   actions: {
     async fetchCars() {
       try {
-        const response = await axios.get('src/data/cars.json');
+        const response = await axios.get('/data/cars.json');
         this.cars = response.data;
       } catch (error) {
         console.error('Wystąpił problem podczas ładowania danych:', error);

@@ -5,7 +5,7 @@
         <div class="flex items-center">
           <div class="cars-select__option-image">
             <img
-              :src="`/src/assets/images/cars/miniatures/${selectedOption?.image}`"
+              :src="`/images/cars/miniatures/${selectedOption?.image}`"
               :alt="selectedOption?.label"
             />
           </div>
@@ -30,7 +30,7 @@
       >
         <div class="flex items-center">
           <div class="cars-select__option-image">
-            <img :src="`/src/assets/images/cars/miniatures/${option.image}`" :alt="option.label" />
+            <img :src="`/images/cars/miniatures/${option.image}`" :alt="option.label" />
           </div>
           <div class="text-2xs xs:text-xs md:text-base pr-2 xs:pr-4">
             {{ option.label }}

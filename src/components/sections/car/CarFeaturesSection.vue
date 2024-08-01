@@ -31,7 +31,7 @@
           <div class="car-feature__image-block md:w-1/2 lg:w-full">
             <img
               class="w-full h-full object-cover"
-              :src="`/src/assets/images/${feature.image}`"
+              :src="`/images/${feature.image}`"
               :alt="feature.title"
             />
           </div>

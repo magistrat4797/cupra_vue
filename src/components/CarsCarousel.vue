@@ -9,7 +9,7 @@
             >
               {{ car.model.name }}
             </h2>
-            <img :src="`/src/assets/images/cars/${car.image}`" :alt="car.model.name" />
+            <img :src="`/images/cars/${car.image}`" :alt="car.model.name" />
           </div>
           <div class="flex justify-center">
             <div class="flex flex-col justify-center w-full max-w-carousel-slide-info">

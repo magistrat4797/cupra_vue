@@ -18,7 +18,7 @@
       >
       <template #left-image>
         <img
-          src="/src/assets/images/cupra_formentor_048.jpg"
+          src="/images/cupra_formentor_048.jpg"
           alt="Design inspirowany wyścigami, stworzony z niezwykłą dbałością o detale."
         />
       </template>
@@ -27,7 +27,7 @@
       >
       <template #right-image>
         <img
-          src="/src/assets/images/cupra_formentor_002.jpg"
+          src="/images/cupra_formentor_002.jpg"
           alt="Podróżuj z rozmachem bez kompromisów."
         />
       </template>
