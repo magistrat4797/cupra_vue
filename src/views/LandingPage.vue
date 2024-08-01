@@ -26,10 +26,7 @@
         >Design inspirowany wyścigami, stworzony z niezwykłą dbałością o detale.</template
       >
       <template #right-image>
-        <img
-          src="/images/cupra_formentor_002.jpg"
-          alt="Podróżuj z rozmachem bez kompromisów."
-        />
+        <img src="/images/cupra_formentor_002.jpg" alt="Podróżuj z rozmachem bez kompromisów." />
       </template>
       <template #right-image-text>Podróżuj z rozmachem bez kompromisów.</template>
       <template #desc-title>Tylko dla odważnych</template>
